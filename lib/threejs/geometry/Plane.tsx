@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import * as R from "react";
 import { getColor, getPhongMaterial, type IColor, type IVector3, parseVector } from "../utils";
 
 import * as THREE from "three";
@@ -38,8 +38,8 @@ export const Plane: React.FC<Props> = (props) => {
 
   const color = getColor(props.color);
   const lineMaterial = getPhongMaterial(THREE, color);
-  const planeGeometry = useMemo(() => new THREE.BoxGeometry(W, W, 0.01), [W]);
-  const planeMaterial = useMemo(
+  const planeGeometry = R.useMemo(() => new THREE.BoxGeometry(W, W, 0.01), [W]);
+  const planeMaterial = R.useMemo(
     () =>
       new THREE.MeshPhysicalMaterial({
         color,

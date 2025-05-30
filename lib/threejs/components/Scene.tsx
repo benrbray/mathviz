@@ -25,6 +25,6 @@ export namespace Scene {
   }
 }
 
-export const Scene = (props: Scene.Props) => {
+export const Scene = (_props: Scene.Props) => {
     return (<AffineComboScene visible={true} />)
 }

@@ -3,9 +3,9 @@ import * as R from "react";
 import * as R3F from "@react-three/fiber"
 import * as DREI from "@react-three/drei"
 import { NormalVectorControl, type NormalVectorSpec } from "./controls/NormalVectorControl";
-import { Plane } from "./geometry/Plane";
-import { Line } from "./geometry/Line";
-import { SVGRenderer } from "three-stdlib";
+// import { Plane } from "./geometry/Plane";
+// import { Line } from "./geometry/Line";
+// import { SVGRenderer } from "three-stdlib";
 
 /* -------------- */
 
@@ -47,7 +47,7 @@ export const createScene = <V extends VariablesSpec>(
     props: SceneProps
   ) => {
 
-    const [rotate, setRotate] = R.useState(true);
+    const [rotate, _setRotate] = R.useState(true);
     const autoRotate = false;
 
     /* ---- handle variables ---- */
@@ -76,7 +76,7 @@ export const createScene = <V extends VariablesSpec>(
     return (<>
       <div style={{ "width" : "30em", "height" : "30em"}}>
         <R3F.Canvas
-          // frameloop="demand" /* render only on state changes */
+          frameloop="demand" /* render only on state changes */
         >
           <ambientLight intensity={Math.PI / 2} />
           <spotLight

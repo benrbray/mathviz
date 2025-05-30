@@ -1,10 +1,10 @@
 import * as THREE from "three";
 import { createScene } from "../createScene";
 import type { NormalVectorSpec } from "../controls/NormalVectorControl";
-import { Line } from "../geometry/Line";
+// import { Line } from "../geometry/Line";
 import { Grid } from "../geometry/Grid";
-import { getBasicMaterial } from "../utils";
-import { ParametricGeometries, ParametricGeometry } from "three-stdlib";
+// import { getBasicMaterial } from "../utils";
+import { ParametricGeometry } from "three-stdlib";
 import { MathLabel } from "../text/MathLabel";
 
 // import { Plane } from "../geometry/Plane";
@@ -87,13 +87,7 @@ class CustomCurve2D extends THREE.Curve<THREE.Vector3> {
 }
 
 let curve = new CustomCurve()
-const points = curve.getPoints( 50 );
-const curveGeometry = new THREE.BufferGeometry().setFromPoints( points );
-const curveMaterial = new THREE.LineBasicMaterial( { color: 0x000000, linewidth: 1 } );
-
 let curve2d = new CustomCurve2D()
-const points2d = curve.getPoints( 50 );
-const curveGeometry2d = new THREE.BufferGeometry().setFromPoints( points );
 
 export const Scene = createScene<Variables>(
   ({ variables }) => {
