@@ -20,20 +20,24 @@ jobs:
           run_install: false
 
       # setup .npmrc file to publish to GitHub Packages
-      - name: Install NodeJS, Configure .npmrc File
+      - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: '23.x'
+          node-version: 23
           cache: 'pnpm'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@benrbray'
 
       # install dependencies
       - name: Install Dependencies
         run: pnpm install
 
-      # publish
-      - name: Publish
-        run: pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # create tarball
+      - name: Create Tarball
+        run: >
+          mkdir -p release
+          pnpm pack --out release/mathviz.tgz
+
+      # upload artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mathviz-${{github.ref}}.tgz
+          path: release/mathviz.tgz
