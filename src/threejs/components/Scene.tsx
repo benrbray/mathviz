@@ -1,4 +1,4 @@
-import { Scene as AffineComboScene } from "../scenes/affine-combo"
+import { Scene as AffineComboScene } from "../scenes/lagrange-multiplier"
 
 // export const Box: R.FC<any> = (props: ThreeElements["mesh"]) => {
 //   const meshRef = R.useRef<THREE.Mesh>(null!);

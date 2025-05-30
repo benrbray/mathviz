@@ -75,7 +75,9 @@ export const createScene = <V extends VariablesSpec>(
 
     return (<>
       <div style={{ "width" : "30em", "height" : "30em"}}>
-        <R3F.Canvas>
+        <R3F.Canvas
+          // frameloop="demand" /* render only on state changes */
+        >
           <ambientLight intensity={Math.PI / 2} />
           <spotLight
             position={[10, 10, 10]}
