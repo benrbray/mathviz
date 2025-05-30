@@ -42,5 +42,5 @@ jobs:
       # create release, upload artifact
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "release/mathviz.tar.gz"
+          artifacts: "release/mathviz.tgz"
           artifactContentType: application/gzip
