@@ -1,0 +1,39 @@
+name: Publish to GitHub Packages
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      # install pnpm (using cache)
+      # (see https://github.com/pnpm/action-setup?tab=readme-ov-file#use-cache-to-reduce-installation-time)
+      - uses: pnpm/action-setup@v4
+        name: Install PNPM
+        with:
+          version: 10
+          run_install: false
+
+      # setup .npmrc file to publish to GitHub Packages
+      - name: Install NodeJS, Configure .npmrc File
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23.x'
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@benrbray'
+
+      # install dependencies
+      - name: Install Dependencies
+        run: pnpm install
+
+      # publish
+      - name: Publish
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
