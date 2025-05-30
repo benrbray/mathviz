@@ -39,5 +39,5 @@ jobs:
       # upload artifact
       - uses: actions/upload-artifact@v4
         with:
-          name: mathviz-${{github.ref}}.tgz
+          name: mathviz-${{github.sha}}.tgz
           path: release/mathviz.tgz
