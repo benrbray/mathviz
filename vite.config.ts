@@ -25,7 +25,7 @@ export default defineConfig({
       // so tell rollup not to bundle them with the package
       external: [
         ...Object.keys(pkg["dependencies"]     || {}),
-        // ...Object.keys(pkg["peerDependencies"] || {}),
+        ...Object.keys(pkg["peerDependencies"] || {}),
         ...Object.keys(pkg["devDependencies"]  || {}),
       ],
     },
