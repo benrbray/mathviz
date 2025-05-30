@@ -32,7 +32,7 @@ jobs:
 
       # create tarball
       - name: Create Tarball
-        run: >
+        run: |
           mkdir -p release
           pnpm pack --out release/mathviz.tgz
 
