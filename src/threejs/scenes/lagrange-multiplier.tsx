@@ -5,6 +5,7 @@ import { Line } from "../geometry/Line";
 import { Grid } from "../geometry/Grid";
 import { getBasicMaterial } from "../utils";
 import { ParametricGeometries, ParametricGeometry } from "three-stdlib";
+import { MathLabel } from "../text/MathLabel";
 
 // import { Plane } from "../geometry/Plane";
 
@@ -128,6 +129,7 @@ export const Scene = createScene<Variables>(
             <lineBasicMaterial linewidth={4} color={0x999999}/>
           </mesh>
       </mesh>
+      <MathLabel label="a" position={[0,0,0]} scale={2} autoScale />
       {/* <Line color={"red"} from={[0,0,0]} to={v1} basicMaterial={true} /> */}
     </>);
   },
