@@ -14,6 +14,10 @@ jobs:
     steps:
       # checkout repository
       - uses: actions/checkout@v4
+
+      # install just
+      - uses: extractions/setup-just@v3
+      
       # install pnpm (using cache)
       # (see https://github.com/pnpm/action-setup?tab=readme-ov-file#use-cache-to-reduce-installation-time)
       - uses: pnpm/action-setup@v4
@@ -36,6 +40,7 @@ jobs:
       # create tarball
       - name: Create Tarball
         run: |
+          just build
           mkdir -p release
           pnpm pack --out release/mathviz.tgz
 
