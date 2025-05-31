@@ -53,6 +53,7 @@ jobs:
       
       # create tarball for release
       - name: Create Tarball
+        run: |
           pnpm pack --out release/mathviz.tgz
 
       # create release, upload artifact
